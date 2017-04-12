@@ -1,4 +1,5 @@
-$('#my-elem').click(function(e) {
-  //the element has been clicked... do stuff here
-  
+var counter = 0;
+$("#my_elem").click(function(e) {
+    counter++;
+    alert (counter);
 });
