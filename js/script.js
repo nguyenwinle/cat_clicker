@@ -1,7 +1,7 @@
 /* ======= Model ======= */
-
 var model = {
-    currentCat: null,
+		admin: '',
+    currentCat: '',
     cats: [
         {
             clickCount : 0,
@@ -43,6 +43,17 @@ var octopus = {
         // tell our views to initialize
         catListView.init();
         catView.init();
+        admin.init();
+    },
+    
+    getCurrentForm: function() {
+    		var $form= $('#admin');
+    		$form.append('<form action="">' +
+  'Edit Name:<br>' +
+  '<input type="text" name="firstname" value="">' +
+  '<br>Edit Clicks:<br>' + '<input type="text" name="lastname" value="">' +
+  '<br><br><input type="submit" value="Submit">' + '</form> ');  
+    
     },
 
     getCurrentCat: function() {
@@ -67,7 +78,16 @@ var octopus = {
 
 
 /* ======= View ======= */
+var admin = {
+	init: function(){
+  	this.adminElem = document.getElementById('admin');
+    this.adminElem.addEventListener('click', function(){
+    				octopus.getCurrentForm();
+    });
+    this.render();
+  }
 
+};
 var catView = {
 
     init: function() {
